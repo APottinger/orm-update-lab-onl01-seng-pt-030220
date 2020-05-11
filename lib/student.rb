@@ -42,9 +42,15 @@ class Student
   
   def self.new_from_db
     new_s = self.new 
-    new_s.id = 
+    new_s.id = row[0]
+    new_s.name = row[1]
+    new_s.grade = row[2]
     new_s
   end 
-
+  
+  def self.find_by_name(name)
+    sql = <<-SQL
+      SELECT * FROM students WHERE 
+  end
 
 end
