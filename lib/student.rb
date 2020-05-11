@@ -26,7 +26,12 @@ class Student
     @name, @grade, @id = name, grade, id 
   end 
   
-  def save 
+  def save
+    sql = <<-SQL
+    INSERT INTO cats(name, grade)
+    VALUES(?,?)
+  SQL
+  DB[:conn].execute(sql)
     
   end 
 
