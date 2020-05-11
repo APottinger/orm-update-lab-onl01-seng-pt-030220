@@ -19,21 +19,7 @@ class Student
     SQL
     DB[:conn].execute(sql)
   end 
-  
-  attr_accessor :name, :grade, :id 
-  
-  def initialize(name:, grade:, id: nil)
-    @name, @grade, @id = name, grade, id 
-  end 
-  
-  def save
-    sql = <<-SQL
-    INSERT INTO cats(name, grade)
-    VALUES(?,?)
-  SQL
-  DB[:conn].execute(sql, self.name, self.grade)
-  end 
-  
+    
   def self.create(name, grade)
     s = self.new(name, grade)
     s.save
@@ -52,7 +38,26 @@ class Student
     sql = "SELECT * FROM students WHERE name = ?"
     result = DB[:conn].execute(sql, name)[0]
     self.new(result[0], result[1], result[2])
-  end 
   end
+  
+  
+  attr_accessor :name, :grade, :id 
+  
+  
+  def initialize(name:, grade:, id: nil)
+    @name, @grade, @id = name, grade, id 
+  end 
+  
+  def save
+    sql = <<-SQL
+    INSERT INTO cats(name, grade)
+    VALUES(?,?)
+  SQL
+  DB[:conn].execute(sql, self.name, self.grade)
+  end
+  
+  def update
+    
+  end 
 
 end
