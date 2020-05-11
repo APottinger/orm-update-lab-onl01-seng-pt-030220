@@ -31,7 +31,7 @@ class Student
     INSERT INTO cats(name, grade)
     VALUES(?,?)
   SQL
-  DB[:conn].execute(sql)
+  DB[:conn].execute(sql, cats.name, cats.grade)
     
   end 
 
