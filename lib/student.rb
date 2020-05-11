@@ -41,6 +41,7 @@ class Student
   end 
   
   def self.new_from_db
+    new_s = Student.new 
     
   end 
 
