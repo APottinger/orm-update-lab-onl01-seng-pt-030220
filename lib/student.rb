@@ -42,7 +42,8 @@ class Student
   
   def self.new_from_db
     new_s = self.new 
-    
+    new_s.id = 
+    new_s
   end 
 
 
