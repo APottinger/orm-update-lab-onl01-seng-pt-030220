@@ -27,7 +27,7 @@ class Student
   end 
   
   def self.new_from_db
-    new_s = self.new 
+    new_s = Student.new 
     new_s.id = row[0]
     new_s.name = row[1]
     new_s.grade = row[2]
