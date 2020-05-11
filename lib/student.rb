@@ -31,7 +31,16 @@ class Student
     INSERT INTO cats(name, grade)
     VALUES(?,?)
   SQL
-  DB[:conn].execute(sql, cats.name, cats.grade)
+  DB[:conn].execute(sql, self.name, self.grade)
+  end 
+  
+  def self.create(name, grade)
+    s = self.new(name, grade)
+    s.save
+    s
+  end 
+  
+  def self.new_from_db
     
   end 
 
